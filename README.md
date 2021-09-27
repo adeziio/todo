@@ -1,10 +1,15 @@
 # A simple to-do list. 
-## GET https://todo-adeziio.vercel.app/api/list
-## POST https://todo-adeziio.vercel.app/api/add
+## 1. GET https://todo-adeziio.vercel.app/list
+## 2. POST https://todo-adeziio.vercel.app/add
 ### body = {
-    "todo": <string>
+    "item": <string>
 }
-## POST https://todo-adeziio.vercel.app/api/remove
+## 3. POST https://todo-adeziio.vercel.app/delete
 ### body = {
-    "todo": <string>
+    "id": <integer>
+}
+## 4. POST https://todo-adeziio.vercel.app/update
+### body = {
+    "id": <integer>,
+    "item": <string>
 }
