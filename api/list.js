@@ -29,10 +29,8 @@ router.post('/add', jsonParser, (req, res) => {
                 message: `${item} already exists`
             })
         }
-
     }
     catch (error) {
-        console.error(error);
         return res.status(500).send("Server error")
     }
 })
@@ -51,10 +49,8 @@ router.post('/remove', jsonParser, (req, res) => {
                 message: `${item} does not exists`
             })
         }
-
     }
     catch (error) {
-        console.error(error);
         return res.status(500).send("Server error")
     }
 })
