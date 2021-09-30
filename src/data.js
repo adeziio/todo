@@ -4,12 +4,9 @@ const db = new sqlite3.Database(':memory:');
 db.serialize(() => {
     const sql = 'CREATE TABLE IF NOT EXISTS todos (id integer primary key, item)';
     db.run(sql);
-    db.run('INSERT INTO todos(item) VALUES(?)', 'buy the milk');
-    db.run('INSERT INTO todos(item) VALUES(?)', 'rent a car');
-    db.run('INSERT INTO todos(item) VALUES(?)', 'feed the cat');
 });
 
-class Todo {
+class Data {
     constructor(id, item) {
         this.id = id;
         this.item = item;
@@ -35,4 +32,4 @@ class Todo {
     };
 }
 
-module.exports = Todo;
+module.exports = Data;
