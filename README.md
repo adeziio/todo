@@ -1,4 +1,4 @@
-# A simple to-do list. 
+# A simple to-do list. Backend repository.
 ## 1. GET https://todo-adeziio.vercel.app/list
 ## 2. POST https://todo-adeziio.vercel.app/add
 ### body = {
