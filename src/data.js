@@ -21,14 +21,19 @@ class Data {
         db.run(sql, item);
     };
 
+    static deleteById(id, callback) {
+        const sql = 'DELETE FROM todos where id = ?';
+        db.run(sql, id, callback);
+    };
+
+    static deleteByItem(item, callback) {
+        const sql = 'DELETE FROM todos where item = ?';
+        db.run(sql, item, callback);
+    };
+
     static update(id, item, callback) {
         const sql = 'UPDATE todos SET item = ? WHERE id = ?';
         db.run(sql, item, id, callback);
-    };
-
-    static delete(id, callback) {
-        const sql = 'DELETE FROM todos where id = ?';
-        db.run(sql, id, callback);
     };
 }
 
