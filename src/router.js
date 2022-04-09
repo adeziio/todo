@@ -5,12 +5,14 @@ const jsonParser = express.json();
 
 // GET
 router.get('/list', (req, res) => {
+    res.header('Access-Control-Allow-Origin', "*");
     Data.all((err, todos) => {
         res.status(200).json(todos)
     });
 })
 
-router.get('/add', jsonParser, (req, res) => {
+router.get('/add', (req, res) => {
+    res.header('Access-Control-Allow-Origin', "*");
     if (req.query.item) {
         Data.add(req.query.item);
         res.json({
@@ -26,6 +28,7 @@ router.get('/add', jsonParser, (req, res) => {
 })
 
 router.get('/delete', jsonParser, (req, res) => {
+    res.header('Access-Control-Allow-Origin', "*");
     if (req.query.id || req.query.item) {
         if (req.query.id) {
             Data.deleteById(req.query.id, (err) => {
@@ -59,6 +62,7 @@ router.get('/delete', jsonParser, (req, res) => {
 })
 
 router.get('/update', jsonParser, (req, res) => {
+    res.header('Access-Control-Allow-Origin', "*");
     if (req.query.id && req.query.item) {
         Data.update(req.query.id, req.query.item, (err, data) => {
             if (err) {
@@ -81,6 +85,7 @@ router.get('/update', jsonParser, (req, res) => {
 
 // POST
 router.post('/add', jsonParser, (req, res) => {
+    res.header('Access-Control-Allow-Origin', "*");
     if (req.body.item) {
         Data.add(req.body.item);
         res.json({
@@ -96,6 +101,7 @@ router.post('/add', jsonParser, (req, res) => {
 })
 
 router.post('/delete', jsonParser, (req, res) => {
+    res.header('Access-Control-Allow-Origin', "*");
     if (req.body.id) {
         Data.deleteById(req.body.id, (err) => {
             if (err) {
@@ -127,6 +133,7 @@ router.post('/delete', jsonParser, (req, res) => {
 })
 
 router.post('/update', jsonParser, (req, res) => {
+    res.header('Access-Control-Allow-Origin', "*");
     if (req.body.id && req.body.item) {
         Data.update(req.body.id, req.body.item, (err, data) => {
             if (err) {
